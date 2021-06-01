@@ -22,12 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="y24-mB-Hlr">
-                                <rect key="frame" x="258" y="28" width="94" height="29"/>
-                                <connections>
-                                    <action selector="sizeFont:" destination="BYZ-38-t0r" eventType="valueChanged" id="rvQ-bI-ACx"/>
-                                </connections>
-                            </stepper>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nj9-Wv-oC1">
                                 <rect key="frame" x="16" y="106" width="343" height="309"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,18 +45,30 @@ It’s aimed squarely at beginners who want to learn to build real iOS apps, but
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="y24-mB-Hlr">
+                                <rect key="frame" x="258" y="28" width="94" height="29"/>
+                                <connections>
+                                    <action selector="sizeFont:" destination="BYZ-38-t0r" eventType="valueChanged" id="rvQ-bI-ACx"/>
+                                </connections>
+                            </stepper>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="g5D-3u-j3J">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ORT-k9-JJf"/>
+                            <constraint firstItem="g5D-3u-j3J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QcA-VP-CNZ"/>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bb4-6Q-QR1"/>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="eE0-5S-PZH"/>
+                            <constraint firstItem="nj9-Wv-oC1" firstAttribute="leading" secondItem="g5D-3u-j3J" secondAttribute="trailing" constant="-181" id="f8c-6f-zEk"/>
                             <constraint firstItem="y24-mB-Hlr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mba-c4-cIE"/>
                             <constraint firstItem="y24-mB-Hlr" firstAttribute="leading" secondItem="nj9-Wv-oC1" secondAttribute="trailing" constant="-101" id="wgc-ra-NSU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nj9-Wv-oC1" secondAttribute="bottom" constant="252" id="zYs-jU-aHr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityindicator" destination="g5D-3u-j3J" id="dFq-Ze-Sfd"/>
                         <outlet property="bottomConstraint" destination="zYs-jU-aHr" id="l5y-6s-HFd"/>
                         <outlet property="stepper" destination="y24-mB-Hlr" id="WEX-GC-Ven"/>
                         <outlet property="textView" destination="nj9-Wv-oC1" id="oqy-9W-NiJ"/>

@@ -13,13 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet var activityindicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.delegate = self
         
-        //        textView.text = ""
+        textView.isHidden = true
+        textView.alpha = 0
         
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
         textView.backgroundColor = self.view.backgroundColor
@@ -34,6 +36,10 @@ class ViewController: UIViewController {
         stepper.backgroundColor = .gray
         stepper.layer.cornerRadius = 5
         
+        activityindicator.hidesWhenStopped = true
+        activityindicator.color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        activityindicator.startAnimating()
+        
         
         // Отслеживаем появление клавиатуры
         NotificationCenter.default.addObserver(self,
@@ -46,7 +52,13 @@ class ViewController: UIViewController {
                                                selector: #selector(updateTextView(notification:)),
                                                name: Notification.Name.UIKeyboardWillHide,
                                                object: nil)
-        
+       
+        UIView.animate(withDuration: 0, delay: 3, options: .curveEaseIn, animations: {
+            self.textView.alpha = 1
+        }) {(finished) in
+            self.activityindicator.stopAnimating()
+            self.textView.isHidden = false
+        }
     }
     
     // Скрытие клавиатуры по тапу за пределами Text View
