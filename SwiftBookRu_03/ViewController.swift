@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet var activityindicator: UIActivityIndicatorView!
+    @IBOutlet var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class ViewController: UIViewController {
         textView.delegate = self
         
         textView.isHidden = true
-        textView.alpha = 0
+//        textView.alpha = 0
         
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
         textView.backgroundColor = self.view.backgroundColor
@@ -39,6 +40,9 @@ class ViewController: UIViewController {
         activityindicator.hidesWhenStopped = true
         activityindicator.color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         activityindicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        progressView.setProgress(0, animated: true)
         
         
         // Отслеживаем появление клавиатуры
@@ -53,11 +57,26 @@ class ViewController: UIViewController {
                                                name: Notification.Name.UIKeyboardWillHide,
                                                object: nil)
        
-        UIView.animate(withDuration: 0, delay: 3, options: .curveEaseIn, animations: {
-            self.textView.alpha = 1
-        }) {(finished) in
-            self.activityindicator.stopAnimating()
-            self.textView.isHidden = false
+        
+       //  Activity Indicaror
+//        UIView.animate(withDuration: 0, delay: 3, options: .curveEaseIn, animations: {
+//            self.textView.alpha = 1
+//        }) {(finished) in
+//            self.activityindicator.stopAnimating()
+//            self.textView.isHidden = false
+//            UIApplication.shared.endIgnoringInteractionEvents()
+//        }
+        
+        // Progress View 
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if self.progressView.progress != 1 {
+             self.progressView.progress += 0.2
+            } else {
+                self.activityindicator.stopAnimating()
+                self.textView.isHidden = false
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.progressView.isHidden = true
+            }
         }
     }
     

@@ -54,29 +54,37 @@ It’s aimed squarely at beginners who want to learn to build real iOS apps, but
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="g5D-3u-j3J">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DNl-cU-SfV">
+                                <rect key="frame" x="16" y="106" width="336" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ORT-k9-JJf"/>
                             <constraint firstItem="g5D-3u-j3J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QcA-VP-CNZ"/>
+                            <constraint firstItem="DNl-cU-SfV" firstAttribute="top" secondItem="nj9-Wv-oC1" secondAttribute="top" id="b1Z-oz-AGo"/>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bb4-6Q-QR1"/>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="eE0-5S-PZH"/>
                             <constraint firstItem="nj9-Wv-oC1" firstAttribute="leading" secondItem="g5D-3u-j3J" secondAttribute="trailing" constant="-181" id="f8c-6f-zEk"/>
+                            <constraint firstItem="DNl-cU-SfV" firstAttribute="centerX" secondItem="nj9-Wv-oC1" secondAttribute="centerX" constant="-3.5" id="gTs-5e-mnE"/>
                             <constraint firstItem="y24-mB-Hlr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="mba-c4-cIE"/>
+                            <constraint firstItem="DNl-cU-SfV" firstAttribute="width" secondItem="nj9-Wv-oC1" secondAttribute="width" constant="-7" id="tMH-GE-yZt"/>
                             <constraint firstItem="y24-mB-Hlr" firstAttribute="leading" secondItem="nj9-Wv-oC1" secondAttribute="trailing" constant="-101" id="wgc-ra-NSU"/>
+                            <constraint firstItem="nj9-Wv-oC1" firstAttribute="leading" secondItem="DNl-cU-SfV" secondAttribute="trailing" constant="-336" id="yjH-7J-sE9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nj9-Wv-oC1" secondAttribute="bottom" constant="252" id="zYs-jU-aHr"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityindicator" destination="g5D-3u-j3J" id="dFq-Ze-Sfd"/>
                         <outlet property="bottomConstraint" destination="zYs-jU-aHr" id="l5y-6s-HFd"/>
+                        <outlet property="progressView" destination="DNl-cU-SfV" id="kHJ-u1-DB5"/>
                         <outlet property="stepper" destination="y24-mB-Hlr" id="WEX-GC-Ven"/>
                         <outlet property="textView" destination="nj9-Wv-oC1" id="oqy-9W-NiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="121"/>
+            <point key="canvasLocation" x="213.59999999999999" y="120.98950524737631"/>
         </scene>
     </scenes>
 </document>
